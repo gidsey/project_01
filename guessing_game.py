@@ -10,9 +10,29 @@ NOTE: If you strongly prefer to work locally on your own computer, you can total
 """
 
 import random
-
+solution = random.randint(1, 10)
+# random module info from https://www.pythonforbeginners.com/random/how-to-use-the-random-module-in-python
 
 def start_game():
+    
+
+    print("------------------------------------" +"\n" + "Welcome to the number guessing game!" +"\n" "------------------------------------")
+
+while True:
+    try:
+        guess = int(input("Pick a number between 1 and 10:  "))
+    except ValueError as err:
+        # print("({})".format(err))
+        print ("You must enter a number, please try again")
+    else:
+        print ("Your guess is {}".format(guess))
+        print ("The answer = {}".format(solution))
+
+
+
+
+
+
     """Psuedo-code Hints
     
     When the program starts, we want to:
@@ -30,6 +50,10 @@ def start_game():
     ( You can add more features/enhancements if you'd like to. )
     """
     # write your code inside this function.
+
+
+
+
 
 
 if __name__ == '__main__':
