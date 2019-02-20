@@ -18,16 +18,31 @@ def start_game():
 
     print("------------------------------------" +"\n" + "Welcome to the number guessing game!" +"\n" "------------------------------------")
 
-while True:
-    try:
-        guess = int(input("Pick a number between 1 and 10:  "))
-    except ValueError as err:
-        # print("({})".format(err))
-        print ("You must enter a number, please try again")
-    else:
-        print ("Your guess is {}".format(guess))
-        print ("The answer = {}".format(solution))
+    while True:
+        try:
+            guess = int(input("Pick a number between 1 and 10:  "))
+            print ("Your guess is {}".format(guess))
+            print ("The answer is {}".format(solution))
+        except ValueError as err:
+            # print("({})".format(err))
+            print ("You must enter a number, please try again")
+            continue #do I need this here?
+        if guess < solution:
+            print("It's higher !") 
+            continue
+        elif guess > solution:
+            print("It's lower !") 
+            continue
 
+        elif guess == solution:
+            print ("Correct!")
+            break
+
+
+
+
+
+        
 
 
 
