@@ -10,32 +10,38 @@ NOTE: If you strongly prefer to work locally on your own computer, you can total
 """
 
 import random
-solution = random.randint(1, 10)
-# random module info from https://www.pythonforbeginners.com/random/how-to-use-the-random-module-in-python
 
 def start_game():
-    
-
-    print("------------------------------------" +"\n" + "Welcome to the number guessing game!" +"\n" "------------------------------------")
+    attempts = 0
+    solution = random.randint(1, 10)
+    # random module info from https://www.pythonforbeginners.com/random/how-to-use-the-random-module-in-python
+    print("\n" + "------------------------------------" +"\n" + "Welcome to the number guessing game!" +"\n" "------------------------------------" +"\n")
+    print ("The answer is {}".format(solution))
+    print ("\n")
 
     while True:
         try:
             guess = int(input("Pick a number between 1 and 10:  "))
-            print ("Your guess is {}".format(guess))
-            print ("The answer is {}".format(solution))
         except ValueError as err:
             # print("({})".format(err))
-            print ("You must enter a number, please try again")
-            continue #do I need this here?
+            print ("You must enter a whole number, please try again.")
+            continue
         if guess < solution:
+            attempts +=1
             print("It's higher !") 
             continue
         elif guess > solution:
+            attempts +=1
             print("It's lower !") 
             continue
 
         elif guess == solution:
-            print ("Correct!")
+            attempts +=1
+            if attempts == 1:
+                print ("Got it! It took you {} try.".format(attempts))
+            else: 
+                print ("Got it! It took you {} tries.".format(attempts))
+            print ("Closing game, see you next time!")
             break
 
 
