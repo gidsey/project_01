@@ -22,11 +22,17 @@ def start_game():
     while True:
         try:
             guess = int(input("Pick a number between 1 and 10:  "))
-        except ValueError as err:
-            # print("({})".format(err))
+        except ValueError:
             print ("You must enter a whole number, please try again.")
             continue
-        if guess < solution:
+
+        if guess < 1:
+            print("Your guess is outside the range. Please try again.") 
+            continue
+        elif guess > 10:
+            print("Your guess is outside the range. Please try again.") 
+            continue
+        elif guess < solution:
             attempts +=1
             print("It's higher !") 
             continue
@@ -34,14 +40,13 @@ def start_game():
             attempts +=1
             print("It's lower !") 
             continue
-
         elif guess == solution:
             attempts +=1
             if attempts == 1:
                 print ("Got it! It took you {} try.".format(attempts))
             else: 
                 print ("Got it! It took you {} tries.".format(attempts))
-            print ("Closing game, see you next time!")
+            print ("Closing game, see you next time!" + "\n")
             break
 
 
