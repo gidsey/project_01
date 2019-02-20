@@ -13,6 +13,7 @@ import random
 
 def start_game():
     attempts = 0
+    highscores =[]
     solution = random.randint(1, 10)
     # random module info from https://www.pythonforbeginners.com/random/how-to-use-the-random-module-in-python
     print("\n" + "------------------------------------" +"\n" + "Welcome to the number guessing game!" +"\n" "------------------------------------" +"\n")
@@ -26,37 +27,36 @@ def start_game():
             print ("You must enter a whole number, please try again.")
             continue
 
-        if guess < 1:
-            print("Your guess is outside the range. Please try again.") 
-            continue
-        elif guess > 10:
+        if guess < 1 or guess > 10:
             print("Your guess is outside the range. Please try again.") 
             continue
         elif guess < solution:
+            # Answer too high
             attempts +=1
             print("It's higher !") 
             continue
         elif guess > solution:
+            # Answer too low
             attempts +=1
             print("It's lower !") 
             continue
         elif guess == solution:
+            #Correct answer given
             attempts +=1
+            highscores.append(attempts)
             if attempts == 1:
                 print ("Got it! It took you {} try.".format(attempts))
             else: 
                 print ("Got it! It took you {} tries.".format(attempts))
-            print ("Closing game, see you next time!" + "\n")
-            break
-
-
-
-
-
-        
-
-
-
+            restart = input("Would you like to play again [y]es/[n]o:  ")
+            if restart.lower()=="y":
+            #Python List min() method from https://www.tutorialspoint.com/python/list_min.htm
+                print("\n" + "The HIGHSCORE is {}".format(min(highscores)))
+                attempts = 0
+                continue
+            else:
+                print ("Closing game, see you next time!" + "\n")
+                break
 
 
     """Psuedo-code Hints
@@ -76,9 +76,6 @@ def start_game():
     ( You can add more features/enhancements if you'd like to. )
     """
     # write your code inside this function.
-
-
-
 
 
 
