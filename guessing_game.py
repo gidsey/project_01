@@ -48,7 +48,7 @@ def start_game():
         try:
             guess = int(input("Pick a number between 1 and 10:  "))
         except ValueError:
-            print ("You must enter a whole number, please try again.")
+            print("You must enter a whole number, please try again.")
             continue
 
         if guess < 1 or guess > 10:
@@ -70,9 +70,9 @@ def start_game():
             attempts += 1
             highscores.append(attempts)
             if attempts == 1:
-                print ("Got it! It took you {} try.".format(attempts))
+                print("Got it! It took you {} try.".format(attempts))
             else:
-                print ("Got it! It took you {} tries.".format(attempts))
+                print("Got it! It took you {} tries.".format(attempts))
             restart = input("Would you like to play again [y]es/[n]o:  ")
             if restart.lower() == "y":
                 # restart the game
@@ -84,7 +84,7 @@ def start_game():
                 attempts = 0
                 continue
             else:
-                print ("Closing game, see you next time!" + "\n")
+                print("Closing game, see you next time!" + "\n")
                 break
 
 
