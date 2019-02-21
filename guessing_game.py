@@ -79,7 +79,7 @@ def start_game():
                 # Python List min() method from
                 # https://www.tutorialspoint.com/python/list_min.htm
                 print("\n" + "The HIGHSCORE is {}".format(min(highscores)))
-# reset the solution and attempt count
+# reset the solution and attempt counts
                 solution = random.randint(1, 10)
                 attempts = 0
                 continue
