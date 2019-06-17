@@ -38,7 +38,7 @@ fork the snapshot of this workspace.
 
 
 def start_game():
-     """The function's docstring."""
+    """The function's docstring."""
     attempts = 0
     highscores = []
     solution = random.randint(1, 10)
